@@ -1,0 +1,22 @@
+{
+    "name": "project",
+    "authors": [],
+    "autoload": {
+        "psr-0": {
+            "Service\\"     : "application/services/",
+            "Core\\"        : "application/core/",
+            "Db\\"          : "application/db/",
+            "Common\\"      : "application/common/",
+            "Exception\\"   : "application/exception/"
+        },
+        "psr-4": {
+            "App\\"      : "application",
+            "Model\\"    : "application/models"
+        }
+    },
+    "require": {
+      "twig/twig" : "1.*"
+    },
+    "require-dev": {
+    }
+}

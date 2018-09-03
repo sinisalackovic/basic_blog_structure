@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Blog</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+</head>
+
+<body>
+<div id="main">
+    <div id="header">
+        <div id="logo">
+            <h1><a href="/">BLOG</a></h1>
+        </div>
+        <div id="menubar">
+            <ul id="menu">
+                <li class="current"><a href="/">Home Page</a></li>
+                <li><a href="posts/">Add Post</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="site_content">
+        <div id="content">
+            <h3>Post:  {{ response.post.title }}</h3>
+            <br>
+            <p>{{ response.post.text }}</p>
+
+            <p><b>Comments: </b></p>
+            {% if response.comments is empty  %}
+                <p>{{ 'There are no comments.' }}</p>
+            {% else %}
+                {% for comment in response.comments %}
+                    <p><b>{{ comment.name }} said:</b>
+                    {{ comment.remark }}</p>
+                    <hr>
+                    <br />
+                {% endfor %}
+            {% endif %}
+
+            <p>Add a new comment</p>
+
+            <form action="/comments?post_id={{ response.post.id }}" method="POST">
+                Name:<br>
+                <input type="text" name="name" value="">
+                <br>
+                Email:<br>
+                <input type="text" name="email" value=""><br>
+                Remark:<br>
+                <textarea rows="4" cols="50" name="remark"></textarea>
+                <br><br>
+                <input type="submit" value="Submit">
+            </form>
+
+        </div>
+    </div>
+
+    <div id="footer">
+        <p><a href="index.html">&copy; 2018 - Imprint </a></p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Blog</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+</head>
+
+<body>
+<div id="main">
+    <div id="header">
+        <div id="logo">
+            <h1><a href="/">BLOG</a></h1>
+        </div>
+        <div id="menubar">
+            <ul id="menu">
+                <li class="current"><a href="/">Home Page</a></li>
+                <li><a href="posts/">Add Post</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="site_content">
+        <div id="content">
+            {% for post in response %}
+                <p><a href="posts?id={{ post.id }}"><b>{{ post.date }} : {{ post.title }}</b></a></p>
+                <p>{{ post.text }}</p>
+                <hr>
+                <br />
+            {% endfor %}
+        </div>
+    </div>
+    <div id="footer">
+        <p><a href="index.html">&copy; 2018 - Imprint </a></p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Blog</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+</head>
+
+<body>
+<div id="main">
+    <div id="header">
+        <div id="logo">
+            <h1><a href="/">BLOG</a></h1>
+        </div>
+        <div id="menubar">
+            <ul id="menu">
+                <li class="current"><a href="/">Home Page</a></li>
+                <li><a href="posts/">Add Post</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="site_content">
+        <div id="content">
+
+            <p>{{ response.post.title }}</p>
+            <p>{{ response.post.text }}</p>
+
+            <p>Comments: </p>
+            {% for comment in response.comments %}
+                <p><b>{{ comment.name }}</b></p>
+                <p>{{ comment.remark }}</p>
+                <hr>
+                <br />
+            {% endfor %}
+        </div>
+    </div>
+    <div id="footer">
+        <p><a href="index.html">&copy; 2018 - Imprint </a></p>
+    </div>
+</div>
+</body>
+</html>
